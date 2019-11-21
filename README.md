@@ -1,37 +1,31 @@
-# Несколько маршрутизаторов в Angular 4/5 (вспомогательные маршрутизаторы)
+# Несколько маршрутизаторов в Angular 7/8 (вспомогательные маршрутизаторы)
 
-* The Angular 4/5 Router: Named and Multiple Router-Outlets (Auxiliary Routes)
-  * https://www.techiediaries.com/angular-router-multiple-outlets
-  * [angular-router-demo](https://github.com/techiediaries/angular-router-demo)
+* Tour of Heroes tutorial
+    * https://angular.io/guide/router
+    * [Tour of Heroes: Services example code](https://angular.io/generated/zips/toh-pt4/toh-pt4.zip)
 
 
-1. В [polyfills.ts](polyfills.ts) добавить `import "core-js/es7/reflect";`
-    ```angular2
-    /** Evergreen browsers require these. **/
-    // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
-    import "core-js/es7/reflect";
-    ```
-2. В [index.html](index.html) добавить `<base href="/">`
+1. В [index.html](index.html) добавить `<base href="/">`
     ```html
     <head>
         <title>Multiple Router-Outlets (Auxiliary Routes)</title>
         <base href="/">
     </head>
     ```
-3. В [app.component.html](app.component.html) именуем вспомогательный маршрутизатор и устанавливаем порядок маршрутизаторов (**router-outlet**) на веб-странице - сначала должен стоять вспомогательный маршрутизатор, а потом основной (дефолтный) маршрутизатор.
+2. В [app.component.html](app.component.html) именуем вспомогательный маршрутизатор и устанавливаем порядок маршрутизаторов (**router-outlet**) на веб-странице - сначала должен стоять вспомогательный маршрутизатор, а потом основной (дефолтный) маршрутизатор.
     ```html
         <router-outlet name="outlet"></router-outlet>
         <router-outlet></router-outlet>
     ``` 
-4. Создаем компоненты например стилей для каждого отдельного маршрутизатора (`sidebar`,`without-sidebar1`,`without-sidebar2`) 
-5. Подключаем эти компоненты маршрутизаторов в модуле [routing.module.ts](routing.module.ts) и маркируем эти компоненты маршрутизаторов (не забываем указывать компонент маршрутизатора по умолчанию!)
+3. Создаем компоненты например стилей для каждого отдельного маршрутизатора (`sidebar`,`without-sidebar1`,`without-sidebar2`) 
+4. Подключаем эти компоненты маршрутизаторов в модуле [routing.module.ts](routing.module.ts) и маркируем эти компоненты маршрутизаторов (не забываем указывать компонент маршрутизатора по умолчанию!)
     ```angular2
     const routes: Routes = [
       { path: "", component: DefaultOutletComponent, outlet: "outlet" },
       { path: "1", component: Outlet1Component, outlet: "outlet" },
       { path: "2", component: Outlet2Component, outlet: "outlet" },
     ```
-6. Для всех вспомогательных компонентов маршрутизаторов используем в ссылке `<HOST>/<PATH>(<OUTLERS>:<OUTLER-NAME>)`
+5. Для всех вспомогательных компонентов маршрутизаторов используем в ссылке `<HOST>/<PATH>(<OUTLERS>:<OUTLER-NAME>)`
 
 ---
 
@@ -58,7 +52,8 @@
   * (`Products Details 1`) http://localhost:4200/product/1(outlet:2)
     ![9](screenshot-9.png)
 
-**(** [Несколько маршрутизаторов в Angular 7/8 (вспомогательные маршрутизаторы)](https://github.com/Home-AngularJS/angular7_8-multiple-router-demo) **)**
++ Tour of Heroes tutorial
+    + `angular7_8-multiple-router-demo` https://github.com/Home-AngularJS/angular7_8-multiple-router-demo
 
 ---
 
