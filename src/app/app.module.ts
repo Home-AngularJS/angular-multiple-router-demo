@@ -1,40 +1,27 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { routingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HeroesModule } from './heroes/heroes.module';
-import { AuthModule } from './auth/auth.module';
-import { Outlet1Component } from "./outlets/outlet1/outlet1.component";
+import { DefaultOutletComponent } from './outlets/default-outlet/default-outlet.component';
+import { Outlet1Component } from './outlets/outlet1/outlet1.component';
+import { Outlet2Component } from './outlets/outlet2/outlet2.component';
+import { HomeComponent } from './layout/home/home.component';
+import { ProductListComponent } from './layout/product-list/product-list.component';
+import { ProductDetailComponent } from './layout/product-detail/product-detail.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HeroesModule,
-    AuthModule,
-    AppRoutingModule
-  ],
   declarations: [
     AppComponent,
-    ComposeMessageComponent,
-    PageNotFoundComponent,
-    Outlet1Component
+    Outlet1Component,
+    Outlet2Component,
+    ProductListComponent,
+    ProductDetailComponent,
+    HomeComponent,
+    DefaultOutletComponent
   ],
-  bootstrap: [ AppComponent ]
+  imports: [BrowserModule, routingModule],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  // Diagnostic only: inspect router configuration
-  constructor(router: Router) {
-    // Use a custom replacer to display function names in the route configs
-    // const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
-
-    // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
-  }
-}
+export class AppModule {}

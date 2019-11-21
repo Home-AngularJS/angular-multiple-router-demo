@@ -1,17 +1,13 @@
-<router-outlet name="outlet"></router-outlet>
+<!--<div style="text-align:center">-->
+<!--	<h1>{{ title }}!</h1>-->
+<!--	<a routerLink="/">Without default-outlet</a>-->
+<!--	|-->
+<!--	<a [routerLink]="[{ outlets: { primary: ['products'],default-outlet: ['products'] } }]">Sidebar</a>-->
+<!--</div>-->
 
-<h1 class="title">Angular Multiple Router</h1>
-
-<nav>
-  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-  <a routerLink="/superheroes" routerLinkActive="active">Heroes</a>
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-</nav>
-
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
+<div>
+	<div style="text-align: center">
+		<router-outlet name="outlet"></router-outlet>
+    <router-outlet></router-outlet>
+	</div>
 </div>
-
-<router-outlet name="popup"></router-outlet>
