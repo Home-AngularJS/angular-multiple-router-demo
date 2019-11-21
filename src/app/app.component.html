@@ -10,8 +10,9 @@
   <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
 </nav>
 
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
-</div>
+<!--<div [@routeAnimation]="getAnimationData(routerOutlet)">-->
+<!--  <router-outlet #routerOutlet="outlet"></router-outlet>-->
+<!--</div>-->
+<router-outlet></router-outlet>
 
 <router-outlet name="popup"></router-outlet>
